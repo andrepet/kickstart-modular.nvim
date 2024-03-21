@@ -49,3 +49,29 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim: ts=2 sts=2 sw=2 et
+-- [[ Custom Keymaps ]]
+
+-- jump forward and backward
+vim.keymap.set('n', 'gf', '<C-i>')
+vim.keymap.set('n', 'gb', '<C-o>')
+
+-- vertical movements, center screen on Ctrl-d and Ctrl-u (page up and page down)
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- center screen on n and N when searching for word
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- move line up or down with Alt + <up,down>
+-- https://vim.fandom.com/wiki/Moving_lines_up_or_down
+vim.keymap.set('n', '<A-Down>', ':m .+1<CR>==')
+vim.keymap.set('n', '<A-Up>', ':m .-2<CR>==')
+vim.keymap.set('i', '<A-Down>', '<Esc>:m .+1<CR>==gi')
+vim.keymap.set('i', '<A-Up>', '<Esc>:m .-2<CR>==gi')
+vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv")
+
+-- editing source code
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
